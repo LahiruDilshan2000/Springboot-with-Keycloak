@@ -5,10 +5,6 @@ interface Props {
     content?: string;
 }
 
-interface States {
-
-}
-
 function Card(props: Props): JSX.Element {
 
     const navigate = useNavigate();

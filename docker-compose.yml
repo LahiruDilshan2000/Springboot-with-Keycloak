@@ -37,6 +37,26 @@ services:
       - "1080:1080"
       - "1025:1025"
 
+  bsn-api:
+    container_name: bsn-api
+    image: bsn/bsn:1.0.0
+    ports:
+      - "8080:8080"
+    networks:
+      - postgres
+    depends_on:
+      - postgres
+
+  bsn-ui:
+    container_name: bsn-ui
+    image: bsn/bsn-ui:1.0.0
+    ports:
+      - "8081:80"
+    networks:
+      - postgres
+    depends_on:
+      - bsn-api
+
   keycloak:
     container_name: keycloak-ms
     image: quay.io/keycloak/keycloak:24.0.2

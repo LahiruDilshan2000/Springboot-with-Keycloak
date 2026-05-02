@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  profiles:
+    active: dev
   datasource:
     password: 1234
     url: jdbc:postgresql://localhost:5432/book-shop
