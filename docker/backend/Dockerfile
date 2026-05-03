@@ -21,5 +21,8 @@ EXPOSE 8080
 ENV DB_URL=jdbc:postgresql://postgres:5432/book-shop
 ENV ACTIVE_PROFILE=${PROFILE}
 ENV JAR_VERSION=${APP_VERSION}
+ENV EMAIL_HOSTNAME=missing_host_name
+ENV EMAIL_USER_NAME=missing_user_name
+ENV EMAIL_PASSWORD=missing_password
 
 CMD java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Dspring.datasource.url=${DB_URL} bookshop-${JAR_VERSION}.jar
