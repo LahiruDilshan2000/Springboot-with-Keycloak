@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  application:
+    name: book-shop
   profiles:
     active: dev
   datasource:
@@ -20,4 +22,6 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: "http://localhost:9098/realms/book-shop"
-
+application:
+  cors:
+    origins: http://localhost:3000,http://localhost:3881,http://109.205.176.140:8080,http://109.205.176.140:8081
