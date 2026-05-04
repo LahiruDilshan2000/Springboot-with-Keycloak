@@ -78,7 +78,7 @@ jobs:
           echo "FILE=$FILE" >> $GITHUB_OUTPUT
 
       - name: Copy docker-compose file
-        run: scp -P 2222 "${{ steps.compose.outputs.FILE }}" ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
+        run: scp -P 2222 book-shop/docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
 
       - name: Set ENV variable and deploy
         run: |
