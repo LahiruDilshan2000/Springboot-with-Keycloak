@@ -29,6 +29,7 @@ jobs:
       - name: Compile project
         run: |
           cd bookshop
+          chmod +x mvnw
           ./mvnw clean compile
 
   unit-test:
