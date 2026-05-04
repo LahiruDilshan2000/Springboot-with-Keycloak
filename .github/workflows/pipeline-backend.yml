@@ -144,7 +144,7 @@ jobs:
         run: |
           ssh -p 2222 ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
 #          Login to Docker Hub on the VPS
-          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+#          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 #          export EMAIL_HOSTNAME={{ secrets.EMAIL_HOSTNAME }}
 #          export EMAIL_USERNAME={{ secrets.EMAIL_USERNAME }}
 #          export EMAIL_PASSWORD={{ secrets.EMAIL_PASSWORD }}
