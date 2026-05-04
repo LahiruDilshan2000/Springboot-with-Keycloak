@@ -143,10 +143,12 @@ jobs:
       - name: Set ENV variable and deploy
         run: |
           ssh -p 2222 ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 #          export EMAIL_HOSTNAME={{ secrets.EMAIL_HOSTNAME }}
 #          export EMAIL_USERNAME={{ secrets.EMAIL_USERNAME }}
 #          export EMAIL_PASSWORD={{ secrets.EMAIL_PASSWORD }}
           cd ci-cd
           docker-compose -f docker-compose.yml pull -q
           docker-compose -f docker-compose.yml up -d
+          docker logout
           EOF
