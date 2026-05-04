@@ -72,6 +72,7 @@ jobs:
       - name: Build project
         run: |
           cd bookshop
+          chmod +x mvnw
           ./mvnw clean package
 
   build-image:
@@ -93,12 +94,14 @@ jobs:
       - name: Build project
         run: |
           cd bookshop
+          chmod +x mvnw
           ./mvnw clean package
 
       - name: Extract project version
         id: extract_version
         run: |
           cd bookshop
+          chmod +x mvnw
           echo "VERSION=$(./mvnw -q -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_OUTPUT
 
       - name: Login to Dockerhub
