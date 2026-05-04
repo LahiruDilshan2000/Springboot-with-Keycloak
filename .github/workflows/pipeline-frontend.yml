@@ -70,13 +70,9 @@ jobs:
       - name: Set ENV variable and deploy
         run: |
           ssh -p 2222 ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} <<EOF
-#               Login to Docker Hub on the VPS
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           cd ci-cd
-#               Pull the new images (now with access)
           docker-compose -f docker-compose.yml pull -q
-#               Restart the containers
           docker-compose -f docker-compose.yml up -d
-#               docker image prune -f
           docker logout
           EOF
