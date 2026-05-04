@@ -142,8 +142,11 @@ jobs:
       - name: Create deployment folder
         run: ssh -p 2222 ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p ci-cd"
 
+      - name: List files to find docker-compose
+        run: find . -name "docker-compose.yml"
+
       - name: Copy docker-compose file
-        run: scp -P 2222 -oStrictHostKeyChecking=no docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
+        run: scp -P 2222 -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
 
       - name: Set ENV variable and deploy
         run: |
