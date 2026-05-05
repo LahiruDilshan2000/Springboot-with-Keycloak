@@ -49,12 +49,12 @@ jobs:
     name: Deploy frontend
     runs-on: self-hosted
     needs: [build-image]
-    uses: action/checkout@v4
     steps:
       - name: Create deployment folder
         run: ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p ci-cd"
 
       - name: Copy docker-compose file
+        uses: action/checkout@v4
         run: scp docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
 
       - name: Set ENV variable and deploy
