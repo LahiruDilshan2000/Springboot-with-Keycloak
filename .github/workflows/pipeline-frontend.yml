@@ -3,7 +3,7 @@ name: BSN Frontend API Pipeline
 on:
   push:
     branches:
-      - ci/pipeline
+      - ci/pipeline_v2
     paths:
       - book-shop-fe/**
       - docker/frontend/**
