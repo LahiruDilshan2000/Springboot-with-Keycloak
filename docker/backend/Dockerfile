@@ -14,7 +14,7 @@ ARG APP_VERSION=1.0.0
 
 
 WORKDIR /app
-COPY --from=build /build/target/bookshop-*.jar /app/
+COPY --from=build /build/target/bookshop-*.jar /app/bookshop
 
 EXPOSE 8080
 
@@ -25,4 +25,4 @@ ENV EMAIL_HOSTNAME=missing_host_name
 ENV EMAIL_USER_NAME=missing_user_name
 ENV EMAIL_PASSWORD=missing_password
 
-CMD java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Dspring.datasource.url=${DB_URL} bookshop-${JAR_VERSION}.jar
+CMD java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Dspring.datasource.url=${DB_URL} bookshop.jar
