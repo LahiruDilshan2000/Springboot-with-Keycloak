@@ -49,6 +49,7 @@ jobs:
     name: Deploy frontend
     runs-on: self-hosted
     needs: [build-image]
+    uses: action/checkout@v4
     steps:
       - name: Create deployment folder
         run: ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p ci-cd"
