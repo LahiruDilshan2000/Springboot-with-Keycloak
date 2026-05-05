@@ -64,21 +64,8 @@ jobs:
       - name: Create deployment folder
         run: ssh -p 2222 ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p ci-cd"
 
-      - name: Debug file location
-        run: |
-          pwd
-          ls -R
-          find . -name docker-compose.yml
-
-      - name: Find docker-compose
-        id: compose
-        run: |
-          FILE=$(find . -name docker-compose.yml | head -n 1)
-          echo "FILE=$FILE"
-          echo "FILE=$FILE" >> $GITHUB_OUTPUT
-
       - name: Copy docker-compose file
-        run: scp -P 2222 ./docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
+        run: scp -P 2222 docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
 
       - name: Set ENV variable and deploy
         run: |
