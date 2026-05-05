@@ -14,7 +14,7 @@ ARG APP_VERSION=1.0.0
 
 
 WORKDIR /app
-COPY --from=build /build/target/bookshop-*.jar /app/bookshop
+COPY --from=build /build/target/bookshop-*.jar /app/bookshop.jar
 
 EXPOSE 8080
 
