@@ -1,6 +1,5 @@
 name: BSN Backend API Pipeline
 
-
 on:
   push:
     branches:

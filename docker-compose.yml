@@ -65,10 +65,16 @@ services:
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
+
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://postgres:5432/book-shop
       KC_DB_USERNAME: user
       KC_DB_PASSWORD: 1234
+
+      KC_HTTP_ENABLED: "true"
+      KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_STRICT_HTTPS: "false"
+      KC_PROXY: "edge"
     networks:
       - postgres
     command:
