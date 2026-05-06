@@ -6,7 +6,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: 1234
       PGDATA: /data/postgres
-#       POSTGRES_DB: book_social_network
+      POSTGRES_DB: book-shop
     volumes:
       - postgres:/data/postgres
     ports:
@@ -73,6 +73,8 @@ services:
       - postgres
     command:
       - "start-dev"
+    depends_on:
+      - postgres
 
 networks:
   postgres:
