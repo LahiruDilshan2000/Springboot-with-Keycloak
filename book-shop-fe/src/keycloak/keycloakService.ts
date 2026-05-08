@@ -15,7 +15,8 @@ class KeycloakService {
 
     private constructor() {
         this._keycloak = new Keycloak({
-            url: "http://localhost:9098",
+            // url: "http://localhost:9098",
+            url: "http://172.245.168.200:9098",
             realm: "book-shop",
             clientId: "bsn"
         });

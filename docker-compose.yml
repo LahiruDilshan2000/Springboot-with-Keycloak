@@ -71,11 +71,16 @@ services:
       KC_DB_USERNAME: user
       KC_DB_PASSWORD: 1234
 
-      KC_HTTP_ENABLED: "true"
-      KC_HOSTNAME_STRICT: "false"
-      KC_HOSTNAME_STRICT_HTTPS: "false"
+#      KC_HTTP_ENABLED: "true"
+#      KC_HOSTNAME_STRICT: "false"
+#      KC_HOSTNAME_STRICT_HTTPS: "false"
 
+      KC_HTTP_ENABLED: true
       KC_HOSTNAME: 172.245.168.200
+      KC_HOSTNAME_PORT: 9098
+      KC_PROXY: edge
+
+#      KC_HOSTNAME: 172.245.168.200
       KC_PROXY_HEADERS: xforwarded
     networks:
       - postgres
