@@ -30,12 +30,12 @@ services:
       - postgres
     restart: unless-stopped
 
-  mail-dev:
-    container_name: ms-mail-dev
-    image: maildev/maildev
-    ports:
-      - "1080:1080"
-      - "1025:1025"
+#  mail-dev:
+#    container_name: ms-mail-dev
+#    image: maildev/maildev
+#    ports:
+#      - "1080:1080"
+#      - "1025:1025"
 
   bsn-api:
     container_name: bsn-api
@@ -71,18 +71,15 @@ services:
       KC_DB_USERNAME: user
       KC_DB_PASSWORD: 1234
 
+      # Connection Settings
       KC_HTTP_ENABLED: "true"
       KC_HOSTNAME_STRICT: "false"
       KC_HOSTNAME_STRICT_HTTPS: "false"
-
-#      KC_HTTP_ENABLED: true
-#      KC_HOSTNAME: 172.245.168.200
-      KC_HOSTNAME: localhost
+      KC_HOSTNAME: 172.245.168.200
       KC_HOSTNAME_PORT: 9098
-#      KC_PROXY: edge
 
-#      KC_HOSTNAME: 172.245.168.200
-      KC_PROXY_HEADERS: xforwarded
+      KC_PROXY: edge
+#      KC_PROXY_HEADERS: xforwarded
     networks:
       - postgres
     command:
